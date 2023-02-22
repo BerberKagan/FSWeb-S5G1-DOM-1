@@ -57,23 +57,34 @@ const navArray = baslikListe.forEach((element, index) => {
   baslikListe[index].setAttribute('class', 'italic');
 });
 
-const footerListe = document.querySelectorAll('footer a');
-for (let index = 0; index<footerListe.length; index++) {
-  footerListe[index].textContent = siteContent.footer.copyright;
-  footerListe[index].setAttribute('class', 'bold');
-}
+const footer = document.querySelector('footer a');
+footer.textContent = siteContent.footer.copyright;
+footer.classList.add("bold");
 
 const image1 = document.querySelector('.logo');
-image1.setAttribute('src', 'http://localhost:9000/img/logo.png');
+image1.src = 'http://localhost:9000/img/logo.png'
 
 const image2 = document.querySelector('#cta-img');
 image2.setAttribute('src', 'http://localhost:9000/img/cta.png');
 
 const image3 = document.querySelector('.middle-img');
-image3.setAttribute('src', 'http://localhost:9000/img/accent.png');
+image3.src = 'http://localhost:9000/img/accent.png';
 
 const ctaTexth1 = document.querySelector('.cta-text h1');
 ctaTexth1.textContent = siteContent.cta.h1;
 
 const button = document.querySelector('.cta-text button');
 button.textContent = siteContent.cta.button;
+
+const mainTextHeaders = document.querySelectorAll(".main-content .text-content h4, .main-content .text-content p");
+mainTextHeaders.forEach((e,i)=>{
+  e.textContent = siteContent["ana-içerik"][Object.keys(siteContent["ana-içerik"])[i]];
+})
+
+const contactP = document.querySelectorAll('.contact p');
+contactP.forEach((e,i)=>{
+  e.textContent = siteContent.iletisim[Object.keys(siteContent["iletisim"])[i+1]];
+})
+
+const contacth4 = document.querySelector('.contact h4');
+contacth4.textContent = siteContent.iletisim["iletişim-h4"];
